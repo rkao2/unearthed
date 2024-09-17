@@ -2,14 +2,13 @@
   "name": "unearthed",
   "version": "1.0.0",
   "main": "server.js",
-  "description": "",
   "type": "module",
   "scripts": {
     "start": "nodemon server.js"
   },
-
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
     "express": "^4.21.0",
     "nodemon": "^3.1.4"
