@@ -1,13 +1,14 @@
-import express from 'express';
-import dotenv from 'dotenv'
-dotenv.config({ path: '../.env' })
-import giftsRouter from './routes/gifts.js';
+import express from 'express'
+import './config/dotenv.js'
+import giftsRouter from './routes/gifts.js'
+import cors from 'cors'
 
 
 const app = express();
 
-app.use('/public', express.static('./public'));
-app.use('/scripts', express.static('./public/scripts'));
+app.use(cors());
+
+app.use('/gifts', giftsRouter)
 
 app.get('/', (req, res) => {
     res
@@ -15,7 +16,6 @@ app.get('/', (req, res) => {
       .send('<h1 style = "text-align: center; margin-top: 50px;">Unearthed API</h1>');
 });
 
-app.use('/gifts', giftsRouter);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
